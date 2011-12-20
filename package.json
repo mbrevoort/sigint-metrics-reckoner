@@ -1,0 +1,26 @@
+{
+  "name": "sigint-metrics-reckoner",
+  "description": "A metrics collector/aggregator for SigInt",
+  "version": "0.1.0",
+  "contributors": [ 
+    { "name": "Mike Brevoort", "email": "mikebre@ecollege.com" },
+    { "name": "Chris Chew", "email": "chrisch@ecollege.com" }
+  ],
+  "private": true,
+  "dependencies": {
+    "measured": "0.1.1",
+    "redis": "0.7.1",
+    "docco-husky": "0.3.x"
+  },
+  "devDependencies": {
+    "nodeunit": "latest"
+  },
+  "keywords": ["sigint", "metrics"], 
+  "scripts": { "test" : "make test" },
+  "engines": { "node": ">= 0.6.5" },
+  "docco_husky": {
+    "output_dir": "docs/out",
+    "content_dir": "docs/src",
+    "project_name": "SigInt Metrics Collector" 
+  }
+}
