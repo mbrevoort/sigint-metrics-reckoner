@@ -53,15 +53,18 @@ module.exports = testCase({
     var metricName = 'foo.meter';
     var expectedName = 'foo.meter.count';
 
-    router.on('publish', function(name, value) {
+    var callback = function(name, value) {
 
       if(name === expectedName) {
         test.equals(expectedValue, value);
         self.harvester.stop();
+        router.removeListener('publish', callback);
         test.done();
       }
     
-    });
+    };
+
+    router.on('publish', callback);
 
     this.collector.emitMeter(metricName);
     this.collector.emitMeter(metricName);

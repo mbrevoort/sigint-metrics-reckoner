@@ -80,7 +80,6 @@ module.exports = testCase({
       test.equals(expected.type, signal.type);
       test.done();
     });  
-    
     this.collector.emitMeter(expected.name);
    },
 
