@@ -58,13 +58,16 @@ module.exports = testCase({
     var self = this; 
     var logfilePath = this.publisher.dir + '/' + this.publisher.filename;
     var name = 'foo.bar';
-    var value = 11;
-    var expected = JSON.stringify({ name: name, value: value }) + '\n';
+    var value = 12;
+    var date = Date.now;
+    var period = 1000;
+    var expected = JSON.stringify({ name: name, value: value, date: date, period: period }) + '\n';
    
-    router.emit('publish', name, value);
+    router.emit('publish', name, value, date, period);
 
-    fs.readFile(logfilePath, function(err, data) {
+    fs.readFile(logfilePath, 'utf-8', function(err, data) {
       test.ok(!err);
+      console.log(expected, data);
       test.equals(expected, data);
       test.done();
     });
