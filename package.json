@@ -10,6 +10,8 @@
   "dependencies": {
     "measured": "0.1.1",
     "redis": "0.7.1",
+    "amqp": "0.1.1",
+    "buffalo": "0.1.2",
     "lazy-socket": "0.0.3",
     "underscore": "1.2.3",
     "docco-husky": "0.3.x"
