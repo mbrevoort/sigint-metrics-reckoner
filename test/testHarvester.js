@@ -14,14 +14,14 @@ module.exports = testCase({
     callback();
   },
 
-  // ============================================================================    
+  // ============================================================================
   "test Counter publish": function(test) {
-  // ============================================================================    
+  // ============================================================================
     test.expect(7);
-   
-    var self = this; 
+
+    var self = this;
     var expectedValue = 2;
-    var expectedName = 'foo.metric';
+    var expectedName = 'foo.metric.counter';
 
     router.once('publish', function(name, value) {
       test.ok(name);
@@ -38,20 +38,20 @@ module.exports = testCase({
       });
     });
 
-    this.collector.emitCounter(expectedName, expectedValue);
-    this.collector.emitCounter(expectedName, expectedValue);
+    this.collector.emitCounter('foo.metric', expectedValue);
+    this.collector.emitCounter('foo.metric', expectedValue);
    },
 
-  // ============================================================================    
+  // ============================================================================
   "test Meter publish": function(test) {
-  // ============================================================================    
+  // ============================================================================
     test.expect(1);
     var now = Date.now();
-   
-    var self = this; 
+
+    var self = this;
     var expectedValue = 2;
     var metricName = 'foo.meter';
-    var expectedName = 'foo.meter.count';
+    var expectedName = 'foo.meter.meter.count';
 
     var callback = function(name, value) {
 
@@ -61,12 +61,12 @@ module.exports = testCase({
         router.removeListener('publish', callback);
         test.done();
       }
-    
+
     };
 
     router.on('publish', callback);
 
     this.collector.emitMeter(metricName);
     this.collector.emitMeter(metricName);
-   }  
+   }
 });
