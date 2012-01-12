@@ -59,7 +59,7 @@ module.exports = testCase({
     var logfilePath = this.publisher.dir + '/' + this.publisher.filename;
     var name = 'foo.bar';
     var value = 12;
-    var date = Date.now;
+    var date = Date.now();
     var period = 1000;
     var expected = JSON.stringify({ name: name, value: value, date: date, period: period }) + '\n';
    
@@ -67,7 +67,6 @@ module.exports = testCase({
 
     fs.readFile(logfilePath, 'utf-8', function(err, data) {
       test.ok(!err);
-      console.log(expected, data);
       test.equals(expected, data);
       test.done();
     });
