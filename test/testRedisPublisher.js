@@ -49,12 +49,12 @@ module.exports = testCase({
 
     var publisher = new RedisPublisher();
     var name = 'foo.bar';
-    var value = 12;
     var date = Date.now();
     var period = 1000;
-    var expected = JSON.stringify({ value: value, date: date, period: period });
+    var payload = { value: 2, date: date, period: period };
+    var expected = JSON.stringify(payload);
 
-    router.emit('publish', name, value, date, period);
+    router.emit('publish', name, payload);
 
     setTimeout(function() {
       test.equals(stats.calledPublish, 1);
