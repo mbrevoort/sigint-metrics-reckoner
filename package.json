@@ -21,12 +21,17 @@
   "devDependencies": {
     "nodeunit": "latest"
   },
-  "keywords": ["sigint", "metrics"], 
+  "keywords": ["sigint", "metrics"],
   "scripts": { "test" : "make test" },
   "engines": { "node": ">= 0.6.5" },
   "docco_husky": {
     "output_dir": "docs/out",
     "content_dir": "docs/src",
-    "project_name": "SigInt Metrics Collector" 
+    "project_name": "SigInt Metrics Collector"
+  },
+  "docco_husky": {
+    "output_dir": "docs/out",
+    "content_dir": "docs/src",
+    "project_name": "SigInt Reckoner Libraries"
   }
 }
