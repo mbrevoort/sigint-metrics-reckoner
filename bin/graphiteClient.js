@@ -10,7 +10,7 @@ var DEFAULTS = {
     host: 'localhost',
     port: 6379,
     password: null,
-    filters: ['*']
+    filters: ['sigint.metrics.*']
   }
 };
 

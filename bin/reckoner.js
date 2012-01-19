@@ -11,7 +11,8 @@ var DEFAULTS = {
   redis: {
     host: 'localhost',
     port: 6379,
-    password: null
+    password: null,
+    prefix: "sigint.metrics."
   },
   amqp: {
     host: 'localhost',
